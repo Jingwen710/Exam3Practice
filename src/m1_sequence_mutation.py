@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jingwen Wu.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -31,9 +31,26 @@ def run_test_zero_changer():
     print('  Actual:  ', test1)
 
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # Done: 2. Write at least 2 additional tests for the  zero_changer   function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
+    # Test 2:
+    test1 = ([1, 2, 4], [0, 0, 0])
+    expected1 = ([1, 2, 4], [1, 2, 3])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 3:
+    test1 = ([8, 4, 0], [77, 0, 0,], [0, 4])
+    expected1 = ([8, 4, 1], [77, 2, 3], [4, 4])
+    zero_changer(test1)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
 
 
 def zero_changer(tuple_of_lists):
@@ -61,7 +78,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    #  Done: 3.Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -69,6 +86,13 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+    change = 1
+    for k in range(len(tuple_of_lists)):
+        for m in range(len(tuple_of_lists[k])):
+            if tuple_of_lists[k][m] == 0:
+                tuple_of_lists[k][m] = change
+                change += 1
+    return tuple_of_lists
 
 
 # ----------------------------------------------------------------------
